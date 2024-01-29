@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
-const userSchema = new Schema({
-    userName: {
+const userSchema = new mongoose.Schema({
+    username: {
         type: String,
         required: true,
         unique: true
@@ -18,7 +18,7 @@ const userSchema = new Schema({
     address: String,
     paymentInformation: {
         type: String,
-        enum: ['COD', 'Razorpay'],
+        enum: ['CashOnDelivery', 'Razorpay'],
         default: 'Razorpay'
     },
     orderHistory: [{
@@ -29,4 +29,4 @@ const userSchema = new Schema({
 
 export const User = mongoose.model("User", userSchema);
 
-module.exports = User;
+export default User;
