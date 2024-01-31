@@ -5,7 +5,10 @@ const categorySchema = new Schema({
         type: String,
         required: true
     },
-    description: String
+    subcategories: [{
+        type: String,
+        required: true
+    }],
 }, { timestamps: true })
 
 export const Category = mongoose.model('Category', categorySchema); 
