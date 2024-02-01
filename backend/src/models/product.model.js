@@ -14,7 +14,11 @@ const productSchema = new Schema({
         type: Boolean,
         default: true
     },
-    images: [images],
+    images: [
+        {
+            type: String
+        }
+    ],
     ratings: [{
         type: Number,
         min: 1,
@@ -27,61 +31,15 @@ const productSchema = new Schema({
     category: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Category'
+    },
+    subcategory: {
+        type: String,
+        required: true
     }
 
 }, { timestamps: true })
 
-
-// Saving the product to the database
-productSchema.save()
-    .then((savedProduct) => {
-        console.log('Product saved:', savedProduct);
-    })
-    .catch((error) => {
-        console.error('Error saving product:', error);
-    });
-
-
-
 export const Product = mongoose.model('Product', productSchema);
-
-module.exports = Product;
-
-
-async function calculateAndSetAverageRating(productId) {
-    try {
-        const aggregationResult = await Product.aggregate([
-            { $match: { _id: mongoose.Types.ObjectId(productId) } },
-            {
-                $project: {
-                    averageRating: { $avg: `$ratings` },
-                },
-            },
-            {
-                $set: {
-                    'ratings': ['$averageRating'],
-                },
-            },
-            {
-                $merge: {
-                    into: 'products',   // Specify the target collection
-                    whenMatched: 'merge', //Update existing documents
-                    whenNotMatched: 'insert' //Insert new documents
-
-                }
-            }
-        ]);
-
-        //Handle the aggregation result if needed 
-        console.log(aggregationResult)
-
-    } catch (err) {
-        console.error('Error calculating and updating average rating:', err)
-    }
-}
-
-//Usage
-const productId = 'yourProductId';//Replace with the actual product ID
-calculateAndSetAverageRating(productId)
+export default Product;
 
 
