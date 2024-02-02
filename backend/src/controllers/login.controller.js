@@ -13,9 +13,9 @@ const loginController = async (req, res) => {
             return res.status(401).json({ error: 'Invalid credentials' });
         }
 
-        const token = jwt.sign({ userId: user._id, username: user.username }, secretKey, { expiresIn: '1d' });
+        const token = jwt.sign({ userId: user._id, username: user.username }, secretKey, { expiresIn: '16d' });
 
-        res.cookie('jwt', token, { httpOnly: true, maxAge: 3600000 })
+        res.cookie('jwt', token, { httpOnly: true, maxAge: 15 * 24 * 60 * 60 * 1000 })
         res.status(200).json({ message: 'Login successful', token })
     } catch {
         console.log('Error during user login:', error);

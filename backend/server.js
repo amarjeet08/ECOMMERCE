@@ -7,6 +7,7 @@ import connectDB from "./src/db/index.js";
 import userRoutes from './src/routes/user.route.js'
 import productRoutes from './src/routes/product.route.js'
 
+
 //Create an express app
 const app = express();
 connectDB()
@@ -17,9 +18,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(cors());
 
-//Usr routes
+
+//Import routes
 app.use('/api/user', userRoutes);
 app.use('/api/product', productRoutes)
+
 
 app.get('/', (req, res) => {
     res.send('Welcome to the HomePage')

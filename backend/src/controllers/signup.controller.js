@@ -10,7 +10,7 @@ const signupController = async (req, res) => {
         const newUser = new User({ username, email, password, address, paymentInformation });
         await newUser.save();
 
-        const token = jwt.sign({ userId: newUser._id, username: newUser.username }, secretKey, { expiresIn: '1d' })
+        const token = jwt.sign({ userId: newUser._id, username: newUser.username }, secretKey, { expiresIn: '30d' })
 
         res.cookie('jwt', token, { httpOnly: true, maxAge: 3600000 })
 

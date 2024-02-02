@@ -5,6 +5,10 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    isAdmin: {
+        type: Boolean,
+        default: false
+    },
     email: {
         type: String,
         required: true,
@@ -15,11 +19,6 @@ const userSchema = new mongoose.Schema({
         required: true
     },
     address: String,
-    paymentInformation: {
-        type: String,
-        enum: ['CashOnDelivery', 'Razorpay'],
-        default: 'Razorpay'
-    },
     orderHistory: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Order'
