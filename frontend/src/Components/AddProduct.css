@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.outer-Div {
+  border: 5px solid black;
+  display: grid;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 50px;
+  gap: 30px;
+  height: 40%;
+}
+
+.form {
+  display: grid;
+  align-items: center;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+.all-input {
+  border: 2px solid black;
+  border-radius: 4px;
+}

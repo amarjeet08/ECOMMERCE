@@ -10,10 +10,6 @@ const productSchema = new Schema({
         type: Number,
         required: true
     },
-    availability: {
-        type: Boolean,
-        default: true
-    },
     images: [
         {
             type: String
@@ -29,8 +25,7 @@ const productSchema = new Schema({
         ref: 'Review'
     }],
     category: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Category'
+        type: String,
     },
     subcategory: {
         type: String,
