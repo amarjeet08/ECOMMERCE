@@ -3,6 +3,8 @@ import SignUp from './Components/SignUp';
 import Login from './Components/Login';
 import Logout from './Components/Logout';
 import AddProduct from './Components/AddProduct';
+import SearchProduct from './Components/SearchProduct';
+import SearchResult from './Components/SearchResult';
 
 
 const App = () => {
@@ -11,7 +13,9 @@ const App = () => {
       {/* <SignUp />
       <Login />
       <Logout /> */}
-      <AddProduct />
+      {/* <AddProduct /> */}
+      <SearchProduct />
+      {/* <SearchResult /> */}
     </div>
   )
 }

@@ -11,6 +11,7 @@ const searchProducts = async (req, res) => {
         const products = await Product.find({
             $or: [
                 { name: { $regex: productNameRegex } },
+                { category: { $regex: productNameRegex } },
                 { subcategory: { $regex: productNameRegex } }
             ]
         });

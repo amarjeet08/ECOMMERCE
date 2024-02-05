@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.result-container {
+  border: 5px solid paleturquoise;
+  height: 300px;
+  width: 300px;
+  overflow: hidden;
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+ul {
+  display: flex;
+  gap: 30px;
+}
